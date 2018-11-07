@@ -8,7 +8,7 @@
   <td>
     <ul>
       <% category.products.order(id: :desc).each do |p| %>
-        <li><%= p.name %></li>
+        <li><%= link_to p.name, product_path(p), target: :_blank %></li>
       <% end %>
     </ul>
   </td>
