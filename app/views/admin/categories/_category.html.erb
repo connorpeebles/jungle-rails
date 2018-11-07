@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <h4><%= category.name %></h4>
+  </td>
+  <td>
+    <h4><%= category.products.size %></h4>
+  </td>
+  <td>
+    <ul>
+      <% category.products.order(id: :desc).each do |p| %>
+        <li><%= p.name %></li>
+      <% end %>
+    </ul>
+  </td>
+</tr>
