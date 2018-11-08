@@ -1,0 +1,11 @@
+<h1>Thank you for shopping at Jungle.</h1>
+<h3>The following is a summary of your order:</h3>
+
+<ul>
+  <% @order.line_items.each do |item| %>
+    <li><%= item.quantity %> <%= item.product.name %>: $<%= '%.2f' % (item.total_price_cents / 100)%></li>
+  <% end %>
+</ul>
+<b>TOTAL: $<%= '%.2f' % (@order.total_cents / 100) %></b>
+
+<p>Thanks for shopping and have a great day!</p>
