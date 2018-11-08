@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    @error = params[:error]
     @products = Product.all.order(created_at: :desc)
   end
 

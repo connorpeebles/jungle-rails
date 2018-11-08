@@ -1,6 +1,11 @@
 <section class="products-index">
 
   <header class="page-header">
+    <% if @error %>
+      <div class="alert alert-danger">
+        Invalid email and/or password.
+      </div>
+    <% end %>
     <h1>Products</h1>
   </header>
 
