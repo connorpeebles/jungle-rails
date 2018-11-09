@@ -39,7 +39,23 @@
               </dd>
             <% end %>
           <% end %>
-          
+          <% if current_user %>
+            <br>
+            <dd><i>Add a review:<i></dd>
+            <%= form_for([@product, @product.reviews.build]) do |f| %>
+              <dd>
+                <%= f.text_area :description %>
+              </dd>
+              <dd>
+                <%= f.select(:rating) do %>
+                  <% [['💚💚💚💚💚', 5], ['💚💚💚💚🖤', 4], ['💚💚💚🖤🖤', 3], ['💚💚🖤🖤🖤', 2], ['💚🖤🖤🖤🖤', 1]].each do |c| -%>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                  <% end %>
+                <% end %>
+                <%= f.submit "Submit" %>
+              </dd>
+            <% end %>
+          <% end %>
         </dl>
       </div>
     </div>
