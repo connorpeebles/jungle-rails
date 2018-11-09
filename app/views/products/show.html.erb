@@ -24,10 +24,12 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Reviews</dt>
+          <% review = @review || @product.reviews.new %>
+          <% curr_user_no_rating = true %>
           <% if @product.reviews.length == 0 %>
             <dd><i>No reviews</i></dd>
           <% else %>
-            <% @product.reviews.each do |r| %>
+            <% @product.reviews.reverse.each do |r| %>
               <dd>
                 <% r.rating.times do |star| %>
                   💚
@@ -37,12 +39,16 @@
                 <% end %>
                 &nbsp;
                 <%= r.description %> - <i><%= r.user.first_name %></i>
+                &nbsp;
+                <% if r.user == current_user %>
+                  <%= link_to "Delete", [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  <% curr_user_no_rating = false %>
+                <% end %>
               </dd>
             <% end %>
           <% end %>
-          <% if current_user %>
+          <% if current_user && curr_user_no_rating%>
             <br>
-            <% review = @review || @product.reviews.new %>
             <%= form_for([@product, review]) do |f| %>
               <% if f.object.errors.any? %>
                 <dd class="alert alert-danger">
