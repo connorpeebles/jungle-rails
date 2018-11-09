@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # http_basic_authenticate_with name: ENV["AUTH_USERNAME"], password: ENV["AUTH_PASSWORD"], except
+
+
   private
 
   def cart
@@ -31,6 +34,12 @@ class ApplicationController < ActionController::Base
       expires: 10.days.from_now
     }
     cookies[:cart]
+  end
+
+  def admin_authenticate
+    authenticate_or_request_with_http_basic do |name, password|
+      name == ENV["AUTH_USERNAME"] && password == ENV["AUTH_PASSWORD"]
+    end
   end
 
 end
