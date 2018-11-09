@@ -3,6 +3,7 @@
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
   </header>
+  
 
   <article class="product-detail">
 
@@ -41,8 +42,20 @@
           <% end %>
           <% if current_user %>
             <br>
-            <dd><i>Add a review:<i></dd>
-            <%= form_for([@product, @product.reviews.build]) do |f| %>
+            <% review = @review || @product.reviews.new %>
+            <%= form_for([@product, review]) do |f| %>
+              <% if f.object.errors.any? %>
+                <dd class="alert alert-danger">
+                  <strong>The following errors prevented saving:</strong>
+                  <ul>
+                    <% f.object.errors.full_messages.each do |error| %>
+                      <li><%= error %></li>
+                    <% end %>
+                  </ul>
+                </dd>
+              <% end %>
+
+              <dd><i>Add a review:</i></dd>
               <dd>
                 <%= f.text_area :description %>
               </dd>
