@@ -22,6 +22,24 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Reviews</dt>
+          <% if @product.reviews.length == 0 %>
+            <dd><i>No reviews</i></dd>
+          <% else %>
+            <% @product.reviews.each do |r| %>
+              <dd>
+                <% r.rating.times do |star| %>
+                  💚
+                <% end %>
+                <% (5 - r.rating).times do |square| %>
+                  🖤
+                <% end %>
+                &nbsp;
+                <%= r.description %> - <i><%= r.user.first_name %></i>
+              </dd>
+            <% end %>
+          <% end %>
+          
         </dl>
       </div>
     </div>
