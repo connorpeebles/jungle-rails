@@ -38,10 +38,10 @@
                   🖤
                 <% end %>
                 &nbsp;
-                <%= r.description %> - <i><%= r.user.first_name %></i>
+                <%= r.description %> - <i><%= r.user.first_name %>, <%= r.created_at.to_s[0..9] %></i>
                 &nbsp;
                 <% if r.user == current_user %>
-                  <%= link_to "Delete", [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  <%= link_to "Delete", [@product, r], class: 'btn btn-sm btn-danger', method: :delete %>
                   <% curr_user_no_rating = false %>
                 <% end %>
               </dd>

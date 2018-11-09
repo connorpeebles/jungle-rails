@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :check_logged_in
 
   def create
     @review = Review.new(review_params)
@@ -27,6 +28,12 @@ class ReviewsController < ApplicationController
       :rating,
       :description
     )
+  end
+
+  def check_logged_in
+    if !current_user
+      redirect_to '/'
+    end
   end
 
 end
