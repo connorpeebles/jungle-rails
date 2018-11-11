@@ -4,6 +4,17 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Final Product
 
+#### Screenshot of the products homepage
+![Products](https://github.com/connorpeebles/jungle-rails/blob/master/screenshots/Products.png)
+
+#### Screenshot of a product details page
+![Product](https://github.com/connorpeebles/jungle-rails/blob/master/screenshots/Product.png) 
+
+#### Screenshot of the order confirmation page
+![OrderConfirmation](https://github.com/connorpeebles/jungle-rails/blob/master/screenshots/OrderConfirmation.png)
+
+#### Screenshot of an admin page
+![Admin](https://github.com/connorpeebles/jungle-rails/blob/master/screenshots/Admin.png)
 
 ## Added Features
 
