@@ -19,7 +19,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Added Features
 
 * Visitors may create and log into their account using their email and password; the email is verified to be unique and the password is encrypted.
-* When a user places an order, they are redirected to an order deatils page, which includes a summary of the items they purchased, the total amount charged to their card, and the email address that the order conformation email was sent to.
+* When a user places an order, they are redirected to an order details page, which includes a summary of the items they purchased, the total amount charged to their card, and the email address that the order confirmation email was sent to.
 * An order confirmation email is sent to the email address associated with the user's account when they place an order.
 * A user may rate and review a product; the user may delete a rating they have previously created, and are limited to leave only one rating per product. A visitor may view the ratings and reviews for a product, but may not rate/review the product themselves.
 * Admin users may view all the categories of products, and add a new category as well as add new products using the new category.
@@ -28,7 +28,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Fixed Bugs
 
 * A user must enter HTTP authentication login/password to access admin functionality.
-* When the cart is empty and the user views their cart, a message ie displayed indicating that their cart is empty, and a link to continue shopping is displayed.
+* When the cart is empty and the user views their cart, a message is displayed indicating that their cart is empty, and a link to continue shopping is displayed.
 
 ## Setup
 
