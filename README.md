@@ -29,6 +29,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 * A user must enter HTTP authentication login/password to access admin functionality.
 * When the cart is empty and the user views their cart, a message is displayed indicating that their cart is empty, and a link to continue shopping is displayed.
+* When a user successfully completed an order, the quantities in the store are updated.
+* When the quantity in a user's cart reaches the total quantity available for the product, the user is not able to add any more of that product to their cart.
 
 ## Setup
 
