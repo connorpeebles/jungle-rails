@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      update_quantities
       UserMailer.confirmation_email(order).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
@@ -56,15 +55,6 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
-  end
-
-  def update_quantities
-    enhanced_cart.each do |entry|
-      product = Product.find(entry[:product].id)
-      quantity = entry[:quantity]
-      product.quantity -= quantity
-      product.save
-    end
   end
 
 end
