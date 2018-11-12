@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 
   describe 'Validations' do
-
     subject {
       described_class.new(name: "Product Test", quantity: 10, category: Category.new(name: "Category Test"))
     }
@@ -30,7 +29,6 @@ RSpec.describe Product, type: :model do
       subject.category = nil
       expect(subject).to_not be_valid
     end
-
   end
 
 end
