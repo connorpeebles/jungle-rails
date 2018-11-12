@@ -51,4 +51,45 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '.authenticate_with_credentials' do
+    subject {
+      described_class.new(first_name: "First", last_name: "Last", email: "test@example.com", password: "abc", password_confirmation: "abc")
+    }
+
+    it 'returns a User if the email exists and password matches' do
+      subject.save
+      result = User.authenticate_with_credentials("test@example.com", "abc")
+      expect(result).to be_instance_of User
+    end
+    it 'returns nil if the email exists but password does not match' do
+      subject.save
+      result = User.authenticate_with_credentials("test@example.com", "ABC")
+      expect(result).to be_nil
+    end
+    it 'returns nil if the email does not exist' do
+      result = User.authenticate_with_credentials("test@example.com", "abc")
+      expect(result).to be_nil
+    end
+    it 'returns a User if the email exists, but different casing, and password matches' do
+      subject.save
+      result = User.authenticate_with_credentials("TEST@example.com", "abc")
+      expect(result).to be_instance_of User
+    end
+    it 'returns a User if the email exists, but with spaces before the address, and password matches' do
+      subject.save
+      result = User.authenticate_with_credentials("  test@example.com", "abc")
+      expect(result).to be_instance_of User
+    end
+    it 'returns a User if the email exists, but with spaces after the address, and password matches' do
+      subject.save
+      result = User.authenticate_with_credentials("test@example.com  ", "abc")
+      expect(result).to be_instance_of User
+    end
+    it 'returns a User if the email exists, but with spaces before and after the address, and password matches' do
+      subject.save
+      result = User.authenticate_with_credentials("   test@example.com ", "abc")
+      expect(result).to be_instance_of User
+    end
+  end
+
 end

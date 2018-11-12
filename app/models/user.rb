@@ -13,6 +13,17 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
+  def self.authenticate_with_credentials(email_address, password)
+    email_address.try(:downcase!)
+    email_address.try(:strip!)
+    user = User.find_by_email(email_address)
+    if user && user.authenticate(password)
+      return user
+    else
+      return nil
+    end
+  end  
+
   private
 
   def downcase_email

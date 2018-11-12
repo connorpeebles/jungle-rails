@@ -132,19 +132,19 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-user1 = User.create(first_name: "Connor", last_name: "P", email: "cp@lol.com", password: "lol")
-user2 = User.create(first_name: "Lou", last_name: "L", email: "ll@lol.com", password: "lol")
-user3 = User.create(first_name: "Alana", last_name: "P", email: "ap@lol.com", password: "lol")
-user4 = User.create(first_name: "Dylan", last_name: "W", email: "dw@lol.com", password: "lol")
-user5 = User.create(first_name: "Shelley", last_name: "W", email: "sw@lol.com", password: "lol")
+user1 = User.create!(first_name: "Connor", last_name: "P", email: "cp@lol.com", password: "lol", password_confirmation: "lol")
+user2 = User.create!(first_name: "Lou", last_name: "L", email: "ll@lol.com", password: "lol", password_confirmation: "lol")
+user3 = User.create!(first_name: "Alana", last_name: "P", email: "ap@lol.com", password: "lol", password_confirmation: "lol")
+user4 = User.create!(first_name: "Dylan", last_name: "W", email: "dw@lol.com", password: "lol", password_confirmation: "lol")
+user5 = User.create!(first_name: "Shelley", last_name: "W", email: "sw@lol.com", password: "lol", password_confirmation: "lol")
 
-review1 = Review.create(product: Product.find(1), user: User.find(1), description: "so cool!", rating: 4)
-review2 = Review.create(product: Product.find(1), user: User.find(2), description: "meh", rating: 2)
-review3 = Review.create(product: Product.find(3), user: User.find(1), description: "omg I love this product soooooo much it is truly the best can't get enough would rate higher than 5 if I could!!", rating: 5)
-review4 = Review.create(product: Product.find(4), user: User.find(3), description: "it's ok", rating: 3)
-review5 = Review.create(product: Product.find(5), user: User.find(1), description: "gross", rating: 1)
-review6 = Review.create(product: Product.find(5), user: User.find(4), description: "not a fan", rating: 2)
-review7 = Review.create(product: Product.find(6), user: User.find(5), description: "😍😍😍😍😍", rating: 5)
+review1 = Review.create!(product: Product.find(1), user: User.find(1), description: "so cool!", rating: 4)
+review2 = Review.create!(product: Product.find(1), user: User.find(2), description: "meh", rating: 2)
+review3 = Review.create!(product: Product.find(3), user: User.find(1), description: "omg I love this product soooooo much it is truly the best can't get enough would rate higher than 5 if I could!!", rating: 5)
+review4 = Review.create!(product: Product.find(4), user: User.find(3), description: "it's ok", rating: 3)
+review5 = Review.create!(product: Product.find(5), user: User.find(1), description: "gross", rating: 1)
+review6 = Review.create!(product: Product.find(5), user: User.find(4), description: "not a fan", rating: 2)
+review7 = Review.create!(product: Product.find(6), user: User.find(5), description: "😍😍😍😍😍", rating: 5)
 
 
 
